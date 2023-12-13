@@ -27,28 +27,34 @@ public class UIText : MonoBehaviour
 
     private PlayerStatsHandler _stathandler;
     private PlayerSO _playerStat;
+    private UIController _controller;
 
     #endregion
 
     private void Awake()
     {
         _stathandler = GetComponent<PlayerStatsHandler>();
+        _controller = GetComponent<UIController>();
     }
 
     private void Start()
     {
         _playerStat = _stathandler.CurrentStates.playerSO;
         UpdateUI();
+
+        _controller.InfoChangedEvent += UpdateMainUI;
+        _controller.StatsChangedEvent += UpdateStats;
+        _controller.InventoryChangedEvent += UpdateInventory;
     }
 
     private void UpdateUI()
     {
-        UpdateStats();
+        UpdateStats(new PlayerStats());
         UpdateMainUI();
         UpdateInventory();
-    }
+    }   
 
-    private void UpdateStats()
+    private void UpdateStats(PlayerStats newModifier)
     {
         powerText.text = _playerStat.power.ToString();
         armorText.text = _playerStat.armor.ToString();
@@ -75,7 +81,10 @@ public class UIText : MonoBehaviour
         {
             Image itemImage = ItemList.GetChild(i).GetChild(1).GetComponent<Image>();
             itemImage.sprite = inventoryItemList[i].itemSprite;
-            if(inventoryItemList[i].IsEquipped) ItemList.GetChild(i).GetChild(2).gameObject.SetActive(true);
+
+            GameObject equipMark = ItemList.GetChild(i).GetChild(2).gameObject;
+            if (inventoryItemList[i].IsEquipped) equipMark.SetActive(true);
+            else equipMark.SetActive(false);
         }
     }
 }

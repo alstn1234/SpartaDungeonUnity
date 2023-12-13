@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     static public GameManager Instance = null;
 
     public List<ItemSO> InventoryItemList = new List<ItemSO>();
+    public ItemSO CurrentWeapon;
+    public ItemSO CurrentArmor;
+
 
     private void Awake()
     {
@@ -14,6 +17,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        CurrentWeapon = null;
+        CurrentArmor = null;
     }
 
 

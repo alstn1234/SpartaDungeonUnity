@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class ButtonUI : MonoBehaviour
 {
-    public GameObject MainUI;
-    public GameObject StatsUI;
-    public GameObject InventoryUI;
+    public GameObject mainUI;
+    public GameObject statsUI;
+    public GameObject inventoryUI;
 
     public void EnterStats()
     {
-        StatsUI.SetActive(true);
-        MainUI.SetActive(false);
+        statsUI.SetActive(true);
+        mainUI.SetActive(false);
     }
 
     public void EnterInventory()
     {
-        InventoryUI.SetActive(true);
-        MainUI.SetActive(false);
+        inventoryUI.SetActive(true);
+        mainUI.SetActive(false);
     }
     public void ExitStats()
     {
-        MainUI.SetActive(true);
-        StatsUI.SetActive(false);
+        mainUI.SetActive(true);
+        statsUI.SetActive(false);
     }
 
     public void ExitInventory()
     {
-        MainUI.SetActive(true);
-        InventoryUI.SetActive(false);
+        mainUI.SetActive(true);
+        inventoryUI.SetActive(false);
     }
 
 }
