@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d48c150b46fe2b4197bbaa52925f2a1, type: 3}
+  m_Name: Item_IronTop
+  m_EditorClassIdentifier: 
+  type: 1
+  itemName: "\uCCA0 \uAC11\uC637"
+  itemSprite: {fileID: 188339480, guid: d87cf34878ac3ff49b1c545c0c96f883, type: 3}
+  desc: "\uCCA0\uB85C \uB9CC\uB4E4\uC5B4\uC9C4 \uAC11\uC637\uC785\uB2C8\uB2E4"
+  power: 0
+  armor: 10
+  Hp: 50
+  critical: 15
+  gold: 1000
+  IsEquipped: 0
