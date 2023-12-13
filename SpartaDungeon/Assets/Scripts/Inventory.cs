@@ -27,8 +27,17 @@ public class Inventory : MonoBehaviour
         _controller.ItemUnEquipEvent += UnEquip;
         foreach (var item in GameManager.Instance.InventoryItemList)
         {
-            if (item.IsEquipped)
-                Equip(item);
+            if (!item.IsEquipped) continue;
+            switch (item.type)
+            {
+                case ItemType.Weapon:
+                    GameManager.Instance.CurrentWeapon = item;
+                    break;
+
+                case ItemType.Armor:
+                    GameManager.Instance.CurrentArmor = item;
+                    break;
+            }
         }
     }
 

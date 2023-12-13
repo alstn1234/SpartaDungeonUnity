@@ -16,7 +16,7 @@ MonoBehaviour:
   level: 10
   Exp: 5
   gold: 8000
-  power: 45
-  armor: 20
-  hp: 120
-  critical: 23
+  power: 35
+  armor: 15
+  hp: 100
+  critical: 18
