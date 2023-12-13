@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryUI : MonoBehaviour 
+public class InventoryUI : MonoBehaviour
 {
     private ItemSO _item;
     private UIController _controller;
@@ -24,7 +24,7 @@ public class InventoryUI : MonoBehaviour
         _item = GameManager.Instance.InventoryItemList[index];
         if (!_item.IsEquipped)
             equipUI.SetActive(true);
-        else 
+        else
             unEquipUI.SetActive(true);
         backButton.interactable = false;
     }
@@ -33,47 +33,20 @@ public class InventoryUI : MonoBehaviour
     {
         backButton.interactable = true;
         if (equipUI.activeSelf) equipUI.SetActive(false);
-        if(unEquipUI.activeSelf) unEquipUI.SetActive(false);
+        if (unEquipUI.activeSelf) unEquipUI.SetActive(false);
     }
 
     public void EquipConfirmClick()
     {
         backButton.interactable = true;
-        switch(_item.type)
-        {
-            case ItemType.Weapon:
-                if (GameManager.Instance.CurrentWeapon != null)
-                    GameManager.Instance.CurrentWeapon.IsEquipped = false;
-                GameManager.Instance.CurrentWeapon = _item;
-                break;
-            case ItemType.Armor:
-                if (GameManager.Instance.CurrentArmor != null)
-                    GameManager.Instance.CurrentArmor.IsEquipped = false;
-                GameManager.Instance.CurrentArmor = _item;
-                break;
-        }
-
-        _item.IsEquipped = true;
-        _controller.CallInventoryEvent();
         equipUI.SetActive(false);
+        _controller.CallEquipEvent(_item);
     }
-    
+
     public void UnEquipConfirmClick()
     {
         backButton.interactable = true;
-
-        switch (_item.type)
-        {
-            case ItemType.Weapon:
-                GameManager.Instance.CurrentWeapon = null;
-                break;
-            case ItemType.Armor:
-                GameManager.Instance.CurrentArmor = null;
-                break;
-        }
-
-        _item.IsEquipped = false;
-        _controller.CallInventoryEvent();
         unEquipUI.SetActive(false);
+        _controller.CallUnEquipEvent(_item);
     }
 }

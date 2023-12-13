@@ -21,4 +21,4 @@ MonoBehaviour:
   Hp: 0
   critical: 8
   gold: 1500
-  IsEquipped: 0
+  IsEquipped: 1

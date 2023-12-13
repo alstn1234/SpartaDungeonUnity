@@ -19,6 +19,6 @@ MonoBehaviour:
   power: 0
   armor: 10
   Hp: 50
-  critical: 15
+  critical: 0
   gold: 1000
   IsEquipped: 0

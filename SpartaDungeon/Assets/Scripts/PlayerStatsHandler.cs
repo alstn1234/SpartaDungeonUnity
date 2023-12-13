@@ -24,12 +24,7 @@ public class PlayerStatsHandler : MonoBehaviour
 
     private void UpdatePlayerStats()
     {
-        PlayerSO playerSO = null;
-        if(baseStats != null)
-        {
-            playerSO = Instantiate(baseStats.playerSO);
-        }
-        CurrentStates = new PlayerStats { playerSO = playerSO };
+        CurrentStates = baseStats;
 
         CurrentStates.NextExp = baseStats.playerSO.level + 2;
 

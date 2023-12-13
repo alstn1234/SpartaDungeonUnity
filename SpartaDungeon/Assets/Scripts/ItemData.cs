@@ -9,17 +9,7 @@ public enum ItemType
     Armor,
 }
 
-[Serializable]
 public class ItemData 
 {
-    public ItemType type;
-    public string itemName;
-    public Sprite itemSprite;
-    public int power = 0;
-    public int armor = 0;
-    public int Hp = 0;
-    public int critical = 0;
-    public int gold;
-    public bool IsEquipped = false;
 
 }
